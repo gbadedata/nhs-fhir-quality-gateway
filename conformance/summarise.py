@@ -1,8 +1,13 @@
 """Condense HL7 validator OperationOutcome output into small committed summaries.
 
-Exit status is non-zero if the synthetic Bundle or the ODS Bundle has any error,
-so CI fails when conformance regresses. The deliberately invalid fixture is
-expected to have errors and is reported, not enforced.
+Exit status is non-zero when:
+
+* a validator output file is missing, or does not cover all three expected
+  inputs (so CI cannot pass just because the validator never ran), or
+* the synthetic Bundle or the ODS Bundle has any error or fatal issue.
+
+The deliberately invalid fixture is expected to have errors; it is reported,
+and it must have at least one error, but it does not fail the build.
 """
 from collections import Counter
 import json
@@ -10,6 +15,9 @@ from pathlib import Path
 import sys
 
 HERE = Path(__file__).resolve().parent / "results"
+ROOT = Path(__file__).resolve().parents[1]
+OUTPUTS = ("synthetic_r4.json", "ods_uk_core.json")
+EXPECTED_INPUTS = ("synthetic_bundle.json", "invalid_bundle.json", "ods_organizations_bundle.json")
 
 
 def outcomes(path: Path) -> list[tuple[str, list[dict]]]:
@@ -30,24 +38,28 @@ def summary(issues: list[dict]) -> dict:
             "top_messages": [{"severity": s, "count": n, "message": m} for (s, m), n in messages.most_common(8)]}
 
 
-def main() -> int:
-    failures = 0
+def main(results: Path = HERE, bundle: Path = ROOT / "build" / "ods_organizations_bundle.json") -> int:
+    problems = [f"missing validator output {name}" for name in OUTPUTS if not (results / name).exists()]
     report = {}
-    for name in ("synthetic_r4.json", "ods_uk_core.json"):
-        path = HERE / name
-        if not path.exists():
-            continue
-        for source, issues in outcomes(path):
-            key = Path(source).name
-            report[key] = summary(issues)
-            errors = report[key]["by_severity"]["fatal"] + report[key]["by_severity"]["error"]
-            if errors and "invalid" not in key:
-                failures += 1
-    (HERE / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
-    if "ods_organizations_bundle.json" in report:
-        bundle = json.loads((Path(__file__).resolve().parents[1] / "build" / "ods_organizations_bundle.json").read_text())
-        (HERE / "ods_uk_core_summary.json").write_text(json.dumps({
-            "resources": len(bundle["entry"]),
+    for name in OUTPUTS:
+        if (results / name).exists():
+            for source, issues in outcomes(results / name):
+                report[Path(source).name] = summary(issues)
+    problems += [f"validator produced no result for {name}" for name in EXPECTED_INPUTS if name not in report]
+
+    for name, result in report.items():
+        errors = result["by_severity"]["fatal"] + result["by_severity"]["error"]
+        if name == "invalid_bundle.json":
+            if errors == 0:
+                problems.append("the invalid fixture produced no errors; the validator may not be checking anything")
+        elif errors:
+            problems.append(f"{name}: {errors} error(s)")
+
+    (results / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
+    if "ods_organizations_bundle.json" in report and bundle.exists():
+        resources = len(json.loads(bundle.read_text())["entry"])
+        (results / "ods_uk_core_summary.json").write_text(json.dumps({
+            "resources": resources,
             "validator": "validator_cli.jar",
             "profile": "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization",
             "package": "fhir.r4.ukcore.stu2#2.0.2",
@@ -56,7 +68,9 @@ def main() -> int:
                     "Warnings are listed in conformance/results/summary.json.",
         }, indent=2) + "\n")
     print(json.dumps({k: v["by_severity"] for k, v in report.items()}, indent=2))
-    return 1 if failures else 0
+    for problem in problems:
+        print(f"CONFORMANCE FAILURE: {problem}", file=sys.stderr)
+    return 1 if problems else 0
 
 
 if __name__ == "__main__":

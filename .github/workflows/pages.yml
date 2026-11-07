@@ -17,18 +17,18 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - name: Build reports from the committed snapshot
         run: |
           python -m ods_directory --output _site
           python -m fhir_gateway run --output _site/synthetic
           rm -f _site/*.sqlite _site/synthetic/*.sqlite
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

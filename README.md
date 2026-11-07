@@ -43,7 +43,7 @@ Python 3.11+, standard library only. The conformance step also needs Java 17+.
 python -m ods_directory                       # audit the committed ODS snapshot, write reports/ods/
 python -m ods_directory --download            # or fetch this week's file from ODS
 python -m fhir_gateway run --output build     # synthetic clinical Bundle through layer 2
-python -m unittest discover -s tests -v       # 56 tests
+python -m unittest discover -s tests -v       # 60 tests
 conformance/run_validator.sh                  # layer 1: official HL7 validator, pinned UK Core 2.0.2
 ```
 
