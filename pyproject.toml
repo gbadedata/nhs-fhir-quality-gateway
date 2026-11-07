@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nhs-fhir-quality-gateway"
+version = "0.2.0"
+description = "Two-layer FHIR validation: HL7 validator with UK Core for real NHS ODS GP practices, plus cross-resource rules for synthetic clinical messages"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = []
+
+[tool.setuptools]
+packages = ["fhir_gateway", "ods_directory"]

@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NHS ODS GP practice directory: quality audit and UK Core mapping</title><style>
+:root{color-scheme:light dark}*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:#f9f9f7;color:#0b0b0b}
+@media (prefers-color-scheme:dark){body{background:#0d0d0d;color:#f0efec}.card,.note,table.plain{background:#1a1a19!important;border-color:rgba(255,255,255,.1)!important}
+.muted{color:#c3c2b7!important}a{color:#86b6ef}}
+header{background:#005eb8;color:#fff;padding:36px max(22px,calc((100vw - 1000px)/2)) 30px}
+header h1{margin:0 0 6px;font-size:clamp(1.7rem,3.4vw,2.5rem)}header p{margin:0;max-width:760px;opacity:.95}
+main{max-width:1000px;margin:auto;padding:22px 20px 70px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:20px 0}
+.card{background:#fcfcfb;border:1px solid rgba(11,11,11,.10);border-radius:12px;padding:16px 18px}
+.card .v{font-size:1.9rem;font-weight:650;line-height:1.2}.card .l{font-size:.9rem}.muted{color:#52514e}
+.note{background:#fcfcfb;border:1px solid rgba(11,11,11,.10);border-left:4px solid #005eb8;border-radius:8px;padding:14px 18px;margin:18px 0}
+h2{margin:34px 0 6px;font-size:1.35rem}
+table.plain{border-collapse:collapse;width:100%;background:#fcfcfb;border:1px solid rgba(11,11,11,.10);font-variant-numeric:tabular-nums}
+table.plain th,table.plain td{padding:8px 12px;border-bottom:1px solid rgba(127,127,127,.25);text-align:left}
+code{font-size:.85em;word-break:break-all}footer{margin-top:40px;font-size:.85rem}
+
+.viz{--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e1e0d9;--axis:#c3c2b7;
+--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--band:rgba(42,120,214,.08);margin:18px 0 26px;background:var(--surface);
+border:1px solid rgba(11,11,11,.10);border-radius:12px;padding:16px 18px 10px;color:var(--ink)}
+@media (prefers-color-scheme:dark){.viz{--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--grid:#2c2c2a;--axis:#383835;
+--s1:#3987e5;--s2:#d95926;--s3:#199e70;--band:rgba(57,135,229,.14);border-color:rgba(255,255,255,.10)}}
+.viz h3{margin:0 0 2px;font-size:1rem}.viz .sub{margin:0 0 10px;color:var(--ink2);font-size:.88rem}
+.viz svg{width:100%;max-width:900px;height:auto;display:block;font:12px system-ui,-apple-system,"Segoe UI",sans-serif}
+.viz .tick{fill:var(--muted);font-variant-numeric:tabular-nums}.viz .lab{fill:var(--ink2)}.viz .val{fill:var(--ink);font-weight:600;paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+.viz .grid{stroke:var(--grid);stroke-width:1}.viz .axis{stroke:var(--axis);stroke-width:1}
+.viz .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--ink2);margin:4px 0 6px}
+.viz .key{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.viz .key.dot{width:9px;height:9px;border-radius:50%}.viz .key.hollow{background:transparent!important;border:2px solid var(--s2)}
+.viz [data-tip]{cursor:default;outline:none}.viz [data-tip]:hover>.mark,.viz [data-tip]:focus>.mark{opacity:.78}
+.viz details{margin-top:6px;font-size:.85rem}.viz summary{cursor:pointer;color:var(--ink2)}
+.viz table{border-collapse:collapse;width:100%;margin-top:6px;font-variant-numeric:tabular-nums}
+.viz th,.viz td{border-bottom:1px solid var(--grid);padding:5px 8px;text-align:left}
+.viztip{position:fixed;pointer-events:none;z-index:9;background:#0b0b0b;color:#f0efec;padding:7px 10px;border-radius:8px;
+font:12px/1.45 system-ui,sans-serif;max-width:300px;box-shadow:0 4px 16px rgba(0,0,0,.25);display:none;white-space:pre-line}
+</style></head><body>
+<header><h1>How many GP practices does England have?</h1>
+<p>A quality audit of the NHS Organisation Data Service GP practice file, mapped to FHIR UK Core Organization resources.
+Snapshot retrieved 2026-11-07. Public organisation data only; no patient records.</p></header>
+<main>
+<div class="cards"><div class='card'><div class='v'>6,162</div><div class='l muted'>Active GP practices in England</div></div><div class='card'><div class='v'>8,193</div><div class='l muted'>GP practice (RO76) records in the file, all statuses and nations</div></div><div class='card'><div class='v'>7,499</div><div class='l muted'>Other prescribing cost centres set aside</div></div><div class='card'><div class='v'>0</div><div class='l muted'>Records failing the ODS specification checks</div></div></div>
+<div class="note"><strong>Why the answer is 6,162, not 8,193.</strong> The file lists every prescribing cost centre:
+7,499 non-GP settings (community services, prisons, walk-in centres and others) are set aside by
+role code. Of the 8,193 GP practice records left, 1,573 are closed, 60 are dormant and
+398 active ones are in Wales. The first version of this project counted all
+8,193 as current, because it did not recognise the file's <code>INACTIVE</code> and <code>DORMANT</code> status values. Running it on the
+real file is what exposed that.</div>
+
+<figure class='viz'><h3>Active GP practices by NHS England region</h3><p class='sub'>6,162 practices; region taken from the practice postcode (ODS column 3)</p><svg viewBox='0 0 900 226' role='img' aria-label='Active GP practices by NHS England region'><line class='grid' x1='230.0' x2='230.0' y1='6' y2='206'/><text class='tick' x='230.0' y='220' text-anchor='middle'>0</text><line class='grid' x1='377.5' x2='377.5' y1='6' y2='206'/><text class='tick' x='377.5' y='220' text-anchor='middle'>500</text><line class='grid' x1='525.0' x2='525.0' y1='6' y2='206'/><text class='tick' x='525.0' y='220' text-anchor='middle'>1,000</text><line class='grid' x1='672.5' x2='672.5' y1='6' y2='206'/><text class='tick' x='672.5' y='220' text-anchor='middle'>1,500</text><line class='grid' x1='820.0' x2='820.0' y1='6' y2='206'/><text class='tick' x='820.0' y='220' text-anchor='middle'>2,000</text><g data-tip='Midlands: 1,242 active practices'><rect x='0' y='1.0' width='900' height='28' fill='transparent'/><text class='lab' x='220' y='19.0' text-anchor='end'>Midlands</text><path class='mark' d='M230.0,6.0h362.4a4,4 0 0 1 4,4v10.0a4,4 0 0 1 -4,4h-362.4z' fill='var(--s1)'/><text class='val' x='602.4' y='19.0'>1,242</text></g><g data-tip='London: 1,143 active practices'><rect x='0' y='29.0' width='900' height='28' fill='transparent'/><text class='lab' x='220' y='47.0' text-anchor='end'>London</text><path class='mark' d='M230.0,34.0h333.2a4,4 0 0 1 4,4v10.0a4,4 0 0 1 -4,4h-333.2z' fill='var(--s1)'/><text class='val' x='573.2' y='47.0'>1,143</text></g><g data-tip='North West: 938 active practices'><rect x='0' y='57.0' width='900' height='28' fill='transparent'/><text class='lab' x='220' y='75.0' text-anchor='end'>North West</text><path class='mark' d='M230.0,62.0h272.7a4,4 0 0 1 4,4v10.0a4,4 0 0 1 -4,4h-272.7z' fill='var(--s1)'/><text class='val' x='512.7' y='75.0'>938</text></g><g data-tip='North East and Yorkshire: 921 active practices'><rect x='0' y='85.0' width='900' height='28' fill='transparent'/><text class='lab' x='220' y='103.0' text-anchor='end'>North East and Yorkshire</text><path class='mark' d='M230.0,90.0h267.7a4,4 0 0 1 4,4v10.0a4,4 0 0 1 -4,4h-267.7z' fill='var(--s1)'/><text class='val' x='507.7' y='103.0'>921</text></g><g data-tip='South East: 772 active practices'><rect x='0' y='113.0' width='900' height='28' fill='transparent'/><text class='lab' x='220' y='131.0' text-anchor='end'>South East</text><path class='mark' d='M230.0,118.0h223.7a4,4 0 0 1 4,4v10.0a4,4 0 0 1 -4,4h-223.7z' fill='var(--s1)'/><text class='val' x='463.7' y='131.0'>772</text></g><g data-tip='East of England: 633 active practices'><rect x='0' y='141.0' width='900' height='28' fill='transparent'/><text class='lab' x='220' y='159.0' text-anchor='end'>East of England</text><path class='mark' d='M230.0,146.0h182.7a4,4 0 0 1 4,4v10.0a4,4 0 0 1 -4,4h-182.7z' fill='var(--s1)'/><text class='val' x='422.7' y='159.0'>633</text></g><g data-tip='South West: 513 active practices'><rect x='0' y='169.0' width='900' height='28' fill='transparent'/><text class='lab' x='220' y='187.0' text-anchor='end'>South West</text><path class='mark' d='M230.0,174.0h147.3a4,4 0 0 1 4,4v10.0a4,4 0 0 1 -4,4h-147.3z' fill='var(--s1)'/><text class='val' x='387.3' y='187.0'>513</text></g><line class='axis' x1='230' x2='230' y1='2' y2='206'/></svg><details><summary>Show data table</summary><table><thead><tr><th scope='col'>Group</th><th scope='col'>Active practices</th></tr></thead><tbody><tr><td>Midlands</td><td>1,242</td></tr><tr><td>London</td><td>1,143</td></tr><tr><td>North West</td><td>938</td></tr><tr><td>North East and Yorkshire</td><td>921</td></tr><tr><td>South East</td><td>772</td></tr><tr><td>East of England</td><td>633</td></tr><tr><td>South West</td><td>513</td></tr></tbody></table></details></figure>
+<figure class='viz'><h3>GP practice codes opened and closed in England, by financial year</h3><p class='sub'>Closures include mergers, where a practice code is retired but services continue under another code. The latest year is part-year.</p><div class='legend'><span><i class='key dot' style='background:var(--s1)'></i>Closed</span><span><i class='key dot' style='background:var(--s2)'></i>Opened</span></div><svg viewBox='0 0 900 260' role='img' aria-label='GP practice codes opened and closed in England, by financial year'><line class='grid' x1='48' x2='884' y1='226.0' y2='226.0'/><text class='tick' x='40' y='230.0' text-anchor='end'>0</text><line class='grid' x1='48' x2='884' y1='123.0' y2='123.0'/><text class='tick' x='40' y='127.0' text-anchor='end'>200</text><line class='grid' x1='48' x2='884' y1='20.0' y2='20.0'/><text class='tick' x='40' y='24.0' text-anchor='end'>400</text><g data-tip='2017-18
+Closed: 202
+Opened: 8'><rect x='48.0' y='20' width='83.6' height='206' fill='transparent'/><path class='mark' d='M64.8,226.0v-100.0a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v100.0z' fill='var(--s1)'/><path class='mark' d='M90.8,226.0v-2.1a2.06,2.06 0 0 1 2.06,-2.06h19.9a2.06,2.06 0 0 1 2.06,2.06v2.1z' fill='var(--s2)'/></g><text class='tick' x='89.8' y='248' text-anchor='middle'>2017-18</text><g data-tip='2018-19
+Closed: 281
+Opened: 11'><rect x='131.6' y='20' width='83.6' height='206' fill='transparent'/><path class='mark' d='M148.4,226.0v-140.7a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v140.7z' fill='var(--s1)'/><path class='mark' d='M174.4,226.0v-2.8a2.8325,2.8325 0 0 1 2.8325,-2.8325h18.3a2.8325,2.8325 0 0 1 2.8325,2.8325v2.8z' fill='var(--s2)'/></g><text class='tick' x='173.4' y='248' text-anchor='middle'>2018-19</text><g data-tip='2019-20
+Closed: 231
+Opened: 9'><rect x='215.2' y='20' width='83.6' height='206' fill='transparent'/><path class='mark' d='M232.0,226.0v-115.0a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v115.0z' fill='var(--s1)'/><path class='mark' d='M258.0,226.0v-2.3a2.3175,2.3175 0 0 1 2.3175,-2.3175h19.4a2.3175,2.3175 0 0 1 2.3175,2.3175v2.3z' fill='var(--s2)'/></g><text class='tick' x='257.0' y='248' text-anchor='middle'>2019-20</text><g data-tip='2020-21
+Closed: 224
+Opened: 4'><rect x='298.8' y='20' width='83.6' height='206' fill='transparent'/><path class='mark' d='M315.6,226.0v-111.4a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v111.4z' fill='var(--s1)'/><path class='mark' d='M341.6,226.0v-1.0a1.03,1.03 0 0 1 1.03,-1.03h21.9a1.03,1.03 0 0 1 1.03,1.03v1.0z' fill='var(--s2)'/></g><text class='tick' x='340.6' y='248' text-anchor='middle'>2020-21</text><g data-tip='2021-22
+Closed: 174
+Opened: 8'><rect x='382.4' y='20' width='83.6' height='206' fill='transparent'/><path class='mark' d='M399.2,226.0v-85.6a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v85.6z' fill='var(--s1)'/><path class='mark' d='M425.2,226.0v-2.1a2.06,2.06 0 0 1 2.06,-2.06h19.9a2.06,2.06 0 0 1 2.06,2.06v2.1z' fill='var(--s2)'/></g><text class='tick' x='424.2' y='248' text-anchor='middle'>2021-22</text><g data-tip='2022-23
+Closed: 101
+Opened: 4'><rect x='466.0' y='20' width='83.6' height='206' fill='transparent'/><path class='mark' d='M482.8,226.0v-48.0a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v48.0z' fill='var(--s1)'/><path class='mark' d='M508.8,226.0v-1.0a1.03,1.03 0 0 1 1.03,-1.03h21.9a1.03,1.03 0 0 1 1.03,1.03v1.0z' fill='var(--s2)'/></g><text class='tick' x='507.8' y='248' text-anchor='middle'>2022-23</text><g data-tip='2023-24
+Closed: 127
+Opened: 4'><rect x='549.6' y='20' width='83.6' height='206' fill='transparent'/><path class='mark' d='M566.4,226.0v-61.4a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v61.4z' fill='var(--s1)'/><path class='mark' d='M592.4,226.0v-1.0a1.03,1.03 0 0 1 1.03,-1.03h21.9a1.03,1.03 0 0 1 1.03,1.03v1.0z' fill='var(--s2)'/></g><text class='tick' x='591.4' y='248' text-anchor='middle'>2023-24</text><g data-tip='2024-25
+Closed: 80
+Opened: 6'><rect x='633.2' y='20' width='83.6' height='206' fill='transparent'/><path class='mark' d='M650.0,226.0v-37.2a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v37.2z' fill='var(--s1)'/><path class='mark' d='M676.0,226.0v-1.5a1.545,1.545 0 0 1 1.545,-1.545h20.9a1.545,1.545 0 0 1 1.545,1.545v1.5z' fill='var(--s2)'/></g><text class='tick' x='675.0' y='248' text-anchor='middle'>2024-25</text><g data-tip='2025-26
+Closed: 91
+Opened: 3'><rect x='716.8' y='20' width='83.6' height='206' fill='transparent'/><path class='mark' d='M733.6,226.0v-42.9a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v42.9z' fill='var(--s1)'/><path class='mark' d='M759.6,226.0v-0.8a0.7725,0.7725 0 0 1 0.7725,-0.7725h22.5a0.7725,0.7725 0 0 1 0.7725,0.7725v0.8z' fill='var(--s2)'/></g><text class='tick' x='758.6' y='248' text-anchor='middle'>2025-26</text><g data-tip='2026-27
+Closed: 36
+Opened: 0'><rect x='800.4' y='20' width='83.6' height='206' fill='transparent'/><path class='mark' d='M817.2,226.0v-14.5a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v14.5z' fill='var(--s1)'/><path class='mark' d='M843.2,226.0v-0.8a0.75,0.75 0 0 1 0.75,-0.75h22.5a0.75,0.75 0 0 1 0.75,0.75v0.8z' fill='var(--s2)'/></g><text class='tick' x='842.2' y='248' text-anchor='middle'>2026-27</text><line class='axis' x1='48' x2='884' y1='226' y2='226'/></svg><details><summary>Show data table</summary><table><thead><tr><th scope='col'>Category</th><th scope='col'>Closed</th><th scope='col'>Opened</th></tr></thead><tbody><tr><td>2017-18</td><td>202</td><td>8</td></tr><tr><td>2018-19</td><td>281</td><td>11</td></tr><tr><td>2019-20</td><td>231</td><td>9</td></tr><tr><td>2020-21</td><td>224</td><td>4</td></tr><tr><td>2021-22</td><td>174</td><td>8</td></tr><tr><td>2022-23</td><td>101</td><td>4</td></tr><tr><td>2023-24</td><td>127</td><td>4</td></tr><tr><td>2024-25</td><td>80</td><td>6</td></tr><tr><td>2025-26</td><td>91</td><td>3</td></tr><tr><td>2026-27</td><td>36</td><td>0</td></tr></tbody></table></details></figure>
+<p>Since April 2017, 1,547 English GP practice codes have closed and 57 have opened. ODS warns that closures before
+April 2017 are incomplete in this file, so the series starts there. A closed code often means a merger rather than a lost service, so this is a measure of
+consolidation, not of access.</p>
+
+<h2>Records by nation and status</h2>
+<table class="plain"><thead><tr><th>Nation / ODS status</th><th>GP practice records</th></tr></thead><tbody><tr><td>England / ACTIVE</td><td>6,162</td></tr><tr><td>England / DORMANT</td><td>60</td></tr><tr><td>England / INACTIVE</td><td>1,547</td></tr><tr><td>Wales / ACTIVE</td><td>398</td></tr><tr><td>Wales / INACTIVE</td><td>26</td></tr></tbody></table>
+
+<h2>Specification checks</h2>
+<p>Each GP practice row is checked against the ODS Reference Data Catalogue: 27 columns, code format by nation, mandatory fields, valid dates,
+close date after open date, and status consistent with the close date. Failing rows go to <code>quarantine.json</code> with reasons.</p>
+<table class="plain"><thead><tr><th>Rejection reason</th><th>Rows</th></tr></thead><tbody><tr><td>none</td><td>0</td></tr></tbody></table>
+<p class="muted">Soft warnings (kept, but flagged):</p>
+<table class="plain"><thead><tr><th>Warning</th><th>Rows</th></tr></thead><tbody><tr><td>active practice without telephone</td><td>3</td></tr></tbody></table>
+
+<h2>UK Core conformance</h2>
+<p>The full Bundle of 6,162 Organization resources was checked with the official HL7 FHIR validator (validator_cli.jar) against <code>https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization</code> from <code>fhir.r4.ukcore.stu2#2.0.2</code>.</p><table class='plain'><thead><tr><th>Severity</th><th>Issues</th></tr></thead><tbody><tr><td>fatal</td><td>0</td></tr><tr><td>error</td><td>0</td></tr><tr><td>warning</td><td>0</td></tr><tr><td>information</td><td>1</td></tr></tbody></table><p class='muted'>Run without a terminology server (-tx n/a), so code-system membership is not checked. Warnings are listed in conformance/results/summary.json.</p>
+
+<h2>Provenance</h2>
+<p>Source: <a href="https://digital.nhs.uk/services/organisation-data-service/data-search-and-export/csv-downloads/gp-and-gp-practice-related-data">ODS epraccur: prescribing cost centres (GP practices are the RO76 subset)</a>, NHS England Organisation Data Service.
+Retrieved 2026-11-07; 3,326,858 bytes; SHA-256 <code>51097770f50db6331195244c3450bb66337eacd0a7ca109592b501f09a039205</code>.
+Field layout: <a href="https://www.odsdatasearchandexport.nhs.uk/referenceDataCatalogue/565791179.html">ODS Reference Data Catalogue</a>. Open Government Licence v3.0.</p>
+<footer class="muted">Independent portfolio project. Not affiliated with or endorsed by NHS England. Telephone numbers in the source are
+practice prescribing contacts published by ODS.</footer>
+</main><script>(()=>{const t=document.createElement('div');t.className='viztip';document.body.appendChild(t);
+const show=(el,x,y)=>{t.textContent=el.getAttribute('data-tip');t.style.display='block';
+const w=t.offsetWidth,h=t.offsetHeight;t.style.left=Math.min(innerWidth-w-8,x+14)+'px';t.style.top=Math.max(8,y-h-10)+'px'};
+document.querySelectorAll('.viz [data-tip]').forEach(el=>{el.setAttribute('tabindex','0');
+el.addEventListener('pointermove',e=>show(el,e.clientX,e.clientY));el.addEventListener('pointerleave',()=>t.style.display='none');
+el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.left+r.width/2,r.top)});
+el.addEventListener('blur',()=>t.style.display='none')})})();</script></body></html>

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "scope": "Layer 2 cross-resource rules; layer 1 R4 conformance is checked by the HL7 validator in conformance/",
+    "data": "entirely synthetic resources; never use real patient records",
+    "exclusions": "no clinical inference, patient treatment, PHI ingestion or predictive scoring"
+  },
+  "counts": {
+    "patient": 90,
+    "encounter": 90,
+    "observation": 90,
+    "appointment": 90
+  },
+  "status": {
+    "fulfilled": 90
+  },
+  "quality": {
+    "source_entries": 360,
+    "accepted_resources": 360,
+    "quarantined_resources": 0,
+    "acceptance_percentage": 100.0,
+    "encounters_with_observations": 90,
+    "encounters_with_observations_percentage": 100.0,
+    "foreign_key_issues": 0,
+    "quarantine_reasons": {},
+    "source_sha256": "7e093f10d7897fa823fa485c22cc26d924eb3af19ad05878fd9bc58244ad89e2"
+  }
+}

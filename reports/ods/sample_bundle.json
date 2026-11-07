@@ -1,0 +1,1382 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81001",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81001",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">THE DENSHAM SURGERY (A81001), GP practice, ODS status ACTIVE, TS18 1HU</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81001"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "THE DENSHAM SURGERY",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "HEALTH CENTRE",
+              "LAWSON STREET"
+            ],
+            "city": "STOCKTON-ON-TEES",
+            "postalCode": "TS18 1HU",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 672351",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81002",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81002",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">QUEENS PARK MEDICAL CENTRE (A81002), GP practice, ODS status ACTIVE, TS18 2AW</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81002"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "QUEENS PARK MEDICAL CENTRE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "FARRER STREET"
+            ],
+            "city": "STOCKTON ON TEES",
+            "postalCode": "TS18 2AW",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 618170",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81004",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81004",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">ACKLAM MEDICAL CENTRE (A81004), GP practice, ODS status ACTIVE, TS5 8SB</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81004"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "ACKLAM MEDICAL CENTRE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "TRIMDON AVENUE",
+              "ACKLAM"
+            ],
+            "city": "MIDDLESBROUGH",
+            "postalCode": "TS5 8SB",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 827697",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81005",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81005",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">SPRINGWOOD SURGERY (A81005), GP practice, ODS status ACTIVE, TS14 7DJ</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81005"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "SPRINGWOOD SURGERY",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "RECTORY LANE"
+            ],
+            "city": "GUISBOROUGH",
+            "postalCode": "TS14 7DJ",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01287 619611",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81006",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81006",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">TENNANT STREET MEDICAL PRACTICE (A81006), GP practice, ODS status ACTIVE, TS18 2AT</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81006"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "TENNANT STREET MEDICAL PRACTICE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "TENNANT STREET"
+            ],
+            "city": "STOCKTON-ON-TEES",
+            "postalCode": "TS18 2AT",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 613331",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81007",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81007",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">BANKHOUSE SURGERY (A81007), GP practice, ODS status ACTIVE, TS24 7PW</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81007"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "BANKHOUSE SURGERY",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "ONE LIFE HARTLEPOOL",
+              "PARK ROAD"
+            ],
+            "city": "HARTLEPOOL",
+            "postalCode": "TS24 7PW",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01429 274800",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81009",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81009",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">VILLAGE MEDICAL CENTRE (A81009), GP practice, ODS status ACTIVE, TS5 6HF</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81009"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "VILLAGE MEDICAL CENTRE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "400-404 LINTHORPE ROAD"
+            ],
+            "city": "MIDDLESBROUGH",
+            "postalCode": "TS5 6HF",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 851122",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81011",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81011",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">CHADWICK PRACTICE (A81011), GP practice, ODS status ACTIVE, TS24 7PW</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81011"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "CHADWICK PRACTICE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "PARK ROAD"
+            ],
+            "city": "HARTLEPOOL",
+            "postalCode": "TS24 7PW",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01429 234646",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81012",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81012",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">WESTBOURNE MEDICAL CENTRE (A81012), GP practice, ODS status ACTIVE, TS3 6AL</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81012"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "WESTBOURNE MEDICAL CENTRE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "NORTH ORMESBY HEALTH VILLAGE",
+              "7 TRINITY MEWS",
+              "NORTH ORMESBY"
+            ],
+            "city": "MIDDLESBROUGH",
+            "postalCode": "TS3 6AL",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 277000",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81013",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81013",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">BROTTON SURGERY (A81013), GP practice, ODS status ACTIVE, TS12 2FF</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81013"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "BROTTON SURGERY",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "EAST CLEVELAND HOSPITAL",
+              "ALFORD ROAD",
+              "BROTTON"
+            ],
+            "city": "SALTBURN-BY-THE-SEA",
+            "postalCode": "TS12 2FF",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01287 676215",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81014",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81014",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">QUEENSTREE PRACTICE (A81014), GP practice, ODS status ACTIVE, TS23 2LA</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81014"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "QUEENSTREE PRACTICE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "QUEENSWAY"
+            ],
+            "city": "BILLINGHAM",
+            "postalCode": "TS23 2LA",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 553389",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81016",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81016",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">PARK SURGERY (A81016), GP practice, ODS status ACTIVE, TS1 3QY</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81016"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "PARK SURGERY",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "PARK SURGERY, ONE LIFE",
+              "LINTHORPE ROAD"
+            ],
+            "city": "MIDDLESBROUGH",
+            "postalCode": "TS1 3QY",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "0300 1112300",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81017",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81017",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">WOODBRIDGE PRACTICE (A81017), GP practice, ODS status ACTIVE, TS17 0EE</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81017"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "WOODBRIDGE PRACTICE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "THE HEALTH CENTRE",
+              "TRENCHARD AVENUE",
+              "THORNABY"
+            ],
+            "city": "STOCKTON-ON-TEES",
+            "postalCode": "TS17 0EE",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 762636",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81018",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81018",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">BENTLEY MEDICAL PRACTICE (A81018), GP practice, ODS status ACTIVE, TS10 4NW</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81018"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "BENTLEY MEDICAL PRACTICE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "REDCAR PRIMARY CARE HOSP",
+              "WEST DYKE ROAD"
+            ],
+            "city": "REDCAR",
+            "postalCode": "TS10 4NW",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 470444",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81019",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81019",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">CROSSFELL HEALTH CENTRE (A81019), GP practice, ODS status ACTIVE, TS3 7RL</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81019"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "CROSSFELL HEALTH CENTRE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "CROSSFELL ROAD",
+              "BERWICK HILLS"
+            ],
+            "city": "MIDDLESBROUGH",
+            "postalCode": "TS3 7RL",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 296777",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81020",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81020",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">MARTONSIDE MEDICAL CENTRE (A81020), GP practice, ODS status ACTIVE, TS4 3BU</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81020"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "MARTONSIDE MEDICAL CENTRE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "1A MARTONSIDE WAY"
+            ],
+            "city": "MIDDLESBROUGH",
+            "postalCode": "TS4 3BU",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 812266",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81021",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81021",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">NORMANBY MEDICAL CENTRE (A81021), GP practice, ODS status ACTIVE, TS6 6TD</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81021"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "NORMANBY MEDICAL CENTRE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "LOW GRANGE HEALTH VILLAGE",
+              "NORMANBY ROAD"
+            ],
+            "city": "MIDDLESBROUGH",
+            "postalCode": "TS6 6TD",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 511660",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81022",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81022",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">HILLSIDE PRACTICE (A81022), GP practice, ODS status ACTIVE, TS12 2TG</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81022"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "HILLSIDE PRACTICE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "WINDERMERE DRIVE",
+              "SKELTON IN CLEVELAND"
+            ],
+            "city": "SALTBURN BY THE SEA",
+            "postalCode": "TS12 2TG",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01287 650430",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81023",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81023",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">THE ENDEAVOUR PRACTICE (A81023), GP practice, ODS status ACTIVE, TS1 2NX</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81023"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "THE ENDEAVOUR PRACTICE",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "20 CLEVELAND SQUARE",
+              "CLEVELAND CENTRE"
+            ],
+            "city": "MIDDLESBROUGH",
+            "postalCode": "TS1 2NX",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 242192",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/A81025",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "A81025",
+        "meta": {
+          "profile": [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization"
+          ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">THE DOVECOT SURGERY (A81025), GP practice, ODS status ACTIVE, TS18 1HU</div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/organization-period",
+            "valuePeriod": {
+              "start": "1974-04-01"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "A81025"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "THE DOVECOT SURGERY",
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "HEALTH CENTRE",
+              "LAWSON STREET"
+            ],
+            "city": "STOCKTON-ON-TEES",
+            "postalCode": "TS18 1HU",
+            "country": "GB"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "01642 676520",
+            "use": "work"
+          }
+        ],
+        "partOf": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "16C"
+          },
+          "display": "Commissioning Sub ICB Location (ODS RE4 relationship)"
+        }
+      }
+    }
+  ]
+}

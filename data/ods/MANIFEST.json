@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "path": "data/ods/epraccur.csv",
+      "title": "ODS epraccur: prescribing cost centres (GP practices are the RO76 subset)",
+      "publisher": "NHS England Organisation Data Service",
+      "source_url": "https://www.odsdatasearchandexport.nhs.uk/api/getReport?report=epraccur",
+      "landing_page": "https://digital.nhs.uk/services/organisation-data-service/data-search-and-export/csv-downloads/gp-and-gp-practice-related-data",
+      "specification": "https://www.odsdatasearchandexport.nhs.uk/referenceDataCatalogue/565791179.html",
+      "retrieved": "2026-11-07",
+      "bytes": 3326858,
+      "sha256": "51097770f50db6331195244c3450bb66337eacd0a7ca109592b501f09a039205",
+      "licence": "Open Government Licence v3.0",
+      "note": "ODS refreshes this report weekly. Re-downloading gives a different file and digest; that is expected."
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "source_rows": 15692,
+  "gp_practice_records": 8193,
+  "gp_practice_records_accepted": 8193,
+  "gp_practice_records_rejected": 0,
+  "rejection_reasons": {},
+  "warnings": {
+    "active_practice_without_telephone": 3
+  },
+  "non_gp_prescribing_cost_centres": 7499,
+  "non_gp_settings_by_role": {
+    "RO247": 2092,
+    "RO72": 2022,
+    "RO250": 889,
+    "RO321": 629,
+    "RO255": 350,
+    "RO80": 309,
+    "RO252": 248,
+    "RO323": 225,
+    "RO259": 173,
+    "RO249": 164,
+    "RO82": 136,
+    "RO87": 107,
+    "RO246": 91,
+    "RO80|RO87": 21,
+    "RO256": 19,
+    "RO251": 10,
+    "RO258": 5,
+    "RO260": 4,
+    "RO257": 2,
+    "RO248": 2,
+    "(blank)": 1
+  },
+  "by_status": {
+    "ACTIVE": 6560,
+    "DORMANT": 60,
+    "INACTIVE": 1573
+  },
+  "by_nation_and_status": {
+    "England / ACTIVE": 6162,
+    "England / DORMANT": 60,
+    "England / INACTIVE": 1547,
+    "Wales / ACTIVE": 398,
+    "Wales / INACTIVE": 26
+  },
+  "current_gp_practices_england": 6162,
+  "current_gp_practices_england_by_region": {
+    "East of England": 633,
+    "London": 1143,
+    "Midlands": 1242,
+    "North East and Yorkshire": 921,
+    "North West": 938,
+    "South East": 772,
+    "South West": 513
+  },
+  "england_openings_and_closures_by_financial_year": [
+    {
+      "financial_year": "2017-18",
+      "opened": 8,
+      "closed": 202
+    },
+    {
+      "financial_year": "2018-19",
+      "opened": 11,
+      "closed": 281
+    },
+    {
+      "financial_year": "2019-20",
+      "opened": 9,
+      "closed": 231
+    },
+    {
+      "financial_year": "2020-21",
+      "opened": 4,
+      "closed": 224
+    },
+    {
+      "financial_year": "2021-22",
+      "opened": 8,
+      "closed": 174
+    },
+    {
+      "financial_year": "2022-23",
+      "opened": 4,
+      "closed": 101
+    },
+    {
+      "financial_year": "2023-24",
+      "opened": 4,
+      "closed": 127
+    },
+    {
+      "financial_year": "2024-25",
+      "opened": 6,
+      "closed": 80
+    },
+    {
+      "financial_year": "2025-26",
+      "opened": 3,
+      "closed": 91
+    },
+    {
+      "financial_year": "2026-27",
+      "opened": 0,
+      "closed": 36
+    }
+  ],
+  "latest_year_is_partial": true,
+  "source_sha256": "51097770f50db6331195244c3450bb66337eacd0a7ca109592b501f09a039205"
+}

@@ -1,0 +1,12 @@
+*.jar
+*.py[cod]
+*.sqlite
+.DS_Store
+.env
+.pytest_cache/
+.venv/
+__pycache__/
+build-invalid/
+build/
+conformance/results/synthetic_r4.json
+conformance/results/ods_uk_core.json

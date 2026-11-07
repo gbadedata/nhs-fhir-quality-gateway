@@ -1,0 +1,13 @@
+{
+  "resources": 6162,
+  "validator": "validator_cli.jar",
+  "profile": "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Organization",
+  "package": "fhir.r4.ukcore.stu2#2.0.2",
+  "by_severity": {
+    "fatal": 0,
+    "error": 0,
+    "warning": 0,
+    "information": 1
+  },
+  "note": "Run without a terminology server (-tx n/a), so code-system membership is not checked. Warnings are listed in conformance/results/summary.json."
+}

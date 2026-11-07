@@ -1,0 +1,71 @@
+{
+  "synthetic_bundle.json": {
+    "by_severity": {
+      "fatal": 0,
+      "error": 0,
+      "warning": 270,
+      "information": 270
+    },
+    "top_messages": [
+      {
+        "severity": "warning",
+        "count": 90,
+        "message": "Unable to validate code 'Cel' in system 'http://unitsofmeasure.org' because the validator is running without terminology services"
+      },
+      {
+        "severity": "warning",
+        "count": 90,
+        "message": "Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated"
+      },
+      {
+        "severity": "warning",
+        "count": 90,
+        "message": "Best Practice Recommendation: In general, all observations should have a performer"
+      }
+    ]
+  },
+  "invalid_bundle.json": {
+    "by_severity": {
+      "fatal": 0,
+      "error": 5,
+      "warning": 21,
+      "information": 22
+    },
+    "top_messages": [
+      {
+        "severity": "warning",
+        "count": 7,
+        "message": "Unable to validate code 'Cel' in system 'http://unitsofmeasure.org' because the validator is running without terminology services"
+      },
+      {
+        "severity": "warning",
+        "count": 7,
+        "message": "Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated"
+      },
+      {
+        "severity": "warning",
+        "count": 7,
+        "message": "Best Practice Recommendation: In general, all observations should have a performer"
+      },
+      {
+        "severity": "error",
+        "count": 4,
+        "message": "Multiple matches in bundle for reference Patient/pt-SYN-0001"
+      },
+      {
+        "severity": "error",
+        "count": 1,
+        "message": "Constraint failed: bdl-7: 'FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId (except in history bundles)'"
+      }
+    ]
+  },
+  "ods_organizations_bundle.json": {
+    "by_severity": {
+      "fatal": 0,
+      "error": 0,
+      "warning": 0,
+      "information": 1
+    },
+    "top_messages": []
+  }
+}
