@@ -39,20 +39,20 @@ Interoperability needs two things: data that **conforms** to the standard, and d
 
 ## Contents
 
-[Two layers](#two-layers-of-validation) · [What the real data showed](#what-the-real-data-showed) · [How it works](#how-it-works) · [Quickstart](#quickstart) · [UK Core mapping](#uk-core-mapping) · [Why the results hold up](#why-the-results-hold-up) · [Data and standards](#data-and-standards) · [Repository layout](#repository-layout) · [Limits](#limits-and-clinical-safety) · [Roadmap](#roadmap) · [Citation and licence](#citation-and-licence)
+[Two layers](#two-layers-of-validation) · [What the real data showed](#what-the-real-data-showed) · [How it works](#how-it-works) · [Quickstart](#quickstart) · [UK Core mapping](#uk-core-mapping) · [Why the results hold up](#why-the-results-hold-up) · [Data and standards](#data-and-standards) · [Repository layout](#repository-layout) · [Limits](#limits-and-clinical-safety) · [Roadmap](#roadmap) · [References](#references) · [Citation and licence](#citation-and-licence)
 
 ## Two layers of validation
 
 | Layer | Tool | Question it answers |
 |---|---|---|
-| **1. Conformance** | Official HL7 FHIR validator 7.0.5, FHIR R4, UK Core 2.0.2 | Is every resource valid against the specification and the profile it claims? |
+| **1. Conformance** | Official [HL7 FHIR validator](#ref-validator) 7.0.5, [FHIR R4](#ref-fhir-r4), [UK Core](#ref-ukcore) 2.0.2 | Is every resource valid against the specification and the profile it claims? |
 | **2. Business rules** | [`fhir_gateway/validate.py`](fhir_gateway/validate.py) | Do the resources make sense together, in ways a clinician would care about? |
 
 Neither layer is enough on its own. The deliberately broken file [`fixtures/invalid_bundle.json`](fixtures/invalid_bundle.json) carries four known defects:
 
 | Defect | HL7 validator | Gateway rules |
 |---|:---:|:---:|
-| Duplicate Patient entry | ✅ `bdl-7` | ✅ `duplicate_resource_id` |
+| Duplicate Patient entry | ✅ [`bdl-7`](#ref-bundle) | ✅ `duplicate_resource_id` |
 | Observation pointing at an Encounter that does not exist | ❌ | ✅ `unresolved_encounter_reference` |
 | Patient 2's Observation linked to patient 3's Encounter | ❌ | ✅ `encounter_patient_mismatch` |
 | Observation timed a day before its Encounter began | ❌ | ✅ `observation_outside_encounter_period` |
@@ -66,7 +66,7 @@ All are fixed, and CI now fails if conformance regresses. Details: [`docs/two_la
 
 ## What the real data showed
 
-The NHS Organisation Data Service file `epraccur` lists every prescribing cost centre: 15,692 rows. Getting from there to "GP practices in England" takes three filters, each one a place to go wrong. The other settings are community services, prisons, walk-in centres and similar:
+The NHS Organisation Data Service file [`epraccur`](#ref-epraccur) lists every prescribing cost centre: 15,692 rows. Getting from there to "GP practices in England" takes three filters, each one a place to go wrong. The other settings are community services, prisons, walk-in centres and similar:
 
 ```text
 15,692 prescribing cost centres
@@ -216,7 +216,7 @@ nhs-fhir-quality-gateway/
 
 - The validator runs without a terminology server, so membership of code systems (for example UCUM `Cel`) is reported as unchecked. Set `FHIR_TX` to point it at one.
 - UK Core conformance is claimed only for the ODS Organization resources. The synthetic clinical resources conform to base FHIR R4 and carry no NHS Number by design.
-- Passing both layers means data is well formed and internally consistent. It is not evidence of clinical correctness and not clinical safety assurance: any real deployment would need DCB0129 and DCB0160 clinical risk management and a Clinical Safety Officer. See [`docs/safety_case.md`](docs/safety_case.md).
+- Passing both layers means data is well formed and internally consistent. It is not evidence of clinical correctness and not clinical safety assurance: any real deployment would need [DCB0129](#ref-dcb0129) and [DCB0160](#ref-dcb0160) clinical risk management and a Clinical Safety Officer. See [`docs/safety_case.md`](docs/safety_case.md).
 - Independent work, not affiliated with or endorsed by NHS England.
 
 ## Roadmap
@@ -225,6 +225,16 @@ nhs-fhir-quality-gateway/
 - [ ] Map ODS role codes into an extension alongside the UK Core organisation type
 - [ ] Validate a UK Core Patient and Encounter profile path with synthetic NHS Numbers that pass the check-digit rule
 - [ ] Publish the full UK Core Bundle as a downloadable release asset
+
+## References
+
+1. <a id="ref-fhir-r4"></a>HL7 International. [FHIR Release 4 (v4.0.1)](https://hl7.org/fhir/R4/).
+2. <a id="ref-bundle"></a>HL7 International. [Bundle resource, FHIR R4](https://hl7.org/fhir/R4/bundle.html), including invariant `bdl-7`: an entry's `fullUrl` must be unique unless the versions differ.
+3. <a id="ref-ukcore"></a>NHS England. [UK Core, package `fhir.r4.ukcore.stu2` 2.0.2](https://simplifier.net/packages/fhir.r4.ukcore.stu2), Simplifier package registry.
+4. <a id="ref-validator"></a>HL7 International. [Using the FHIR Validator](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator); releases at [hapifhir/org.hl7.fhir.core](https://github.com/hapifhir/org.hl7.fhir.core/releases/tag/7.0.5).
+5. <a id="ref-epraccur"></a>NHS England Organisation Data Service. [GP Practices (Prescribing Cost Centres): `epraccur` file specification](https://www.odsdatasearchandexport.nhs.uk/referenceDataCatalogue/565791179.html).
+6. <a id="ref-dcb0129"></a>NHS England. [DCB0129: Clinical Risk Management: its Application in the Manufacture of Health IT Systems](https://digital.nhs.uk/data-and-information/information-standards/governance/latest-activity/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems).
+7. <a id="ref-dcb0160"></a>NHS England. [DCB0160: Clinical Risk Management: its Application in the Deployment and Use of Health IT Systems](https://digital.nhs.uk/data-and-information/information-standards/governance/latest-activity/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems).
 
 ## Citation and licence
 

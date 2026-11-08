@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3 (2026-11-08)
+
+- README: References section (FHIR R4, the Bundle `bdl-7` invariant, UK Core, the HL7 validator, the ODS `epraccur` specification, DCB0129 and DCB0160), linked from the text.
+
 ## 0.2.2 (2026-11-08)
 
 - HL7 validator pinned to 7.0.5 (was "latest") and cached in CI with the UK Core packages, so conformance results are reproducible.
