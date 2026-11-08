@@ -8,11 +8,12 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-JAR="${FHIR_VALIDATOR_JAR:-build/validator_cli.jar}"
+VALIDATOR_VERSION="7.0.5"   # pinned so results are reproducible
+JAR="${FHIR_VALIDATOR_JAR:-build/validator_cli-${VALIDATOR_VERSION}.jar}"
 UK_CORE="fhir.r4.ukcore.stu2#2.0.2"
 mkdir -p build conformance/results
 if [ ! -f "$JAR" ]; then
-  curl -sSL -o "$JAR" https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar
+  curl -sSL -o "$JAR" "https://github.com/hapifhir/org.hl7.fhir.core/releases/download/${VALIDATOR_VERSION}/validator_cli.jar"
 fi
 
 python -m fhir_gateway run --patients 90 --seed 41 --output build/synthetic >/dev/null

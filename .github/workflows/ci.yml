@@ -36,11 +36,13 @@ jobs:
         with:
           distribution: temurin
           java-version: "21"
-      - name: Cache FHIR packages
+      - name: Cache the pinned validator and FHIR packages
         uses: actions/cache@v6
         with:
-          path: ~/.fhir/packages
-          key: fhir-packages-ukcore-2.0.2
+          path: |
+            ~/.fhir/packages
+            build/validator_cli-7.0.5.jar
+          key: fhir-validator-7.0.5-ukcore-2.0.2
       - name: HL7 FHIR validator (fails on any error outside the invalid fixture)
         run: conformance/run_validator.sh
       - uses: actions/upload-artifact@v7

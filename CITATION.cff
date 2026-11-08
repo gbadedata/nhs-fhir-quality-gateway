@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use or refer to this project, please cite it as below."
+type: software
+title: "NHS FHIR Quality Gateway: two-layer validation of NHS FHIR data"
+abstract: >-
+  Standards conformance (official HL7 FHIR validator, UK Core 2.0.2) and cross-resource business
+  rules for FHIR R4 data, demonstrated on every GP practice in England from the NHS Organisation
+  Data Service and on synthetic clinical messages.
+authors:
+  - family-names: Odimayo
+    given-names: Oluwagbade
+    website: "https://gbadedata.com"
+version: 0.2.2
+date-released: 2026-11-08
+license: MIT
+repository-code: "https://github.com/gbadedata/nhs-fhir-quality-gateway"
+url: "https://gbadedata.github.io/nhs-fhir-quality-gateway/"
+keywords:
+  - NHS
+  - HL7 FHIR
+  - UK Core
+  - interoperability
+  - Organisation Data Service
+  - data quality
+  - health informatics
+references:
+  - type: data
+    title: "ODS epraccur: GP practices (prescribing cost centres)"
+    authors:
+      - name: "NHS England Organisation Data Service"
+    date-released: 2026-11-07
+    url: "https://digital.nhs.uk/services/organisation-data-service/data-search-and-export/csv-downloads/gp-and-gp-practice-related-data"

@@ -211,11 +211,13 @@ def columns(title: str, subtitle: str, categories: list[str], series: list[tuple
     return _figure(title, subtitle, "".join(parts), ["Category"] + [n for n, _ in series], rows, legend)
 
 
-def funnel(title: str, subtitle: str, points: list[dict], p0: float, limit, fmt_p, fmt_n) -> str:
+def funnel(title: str, subtitle: str, points: list[dict], p0: float, limits, fmt_p, fmt_n,
+           x_label: str = "Volume (log scale)") -> str:
     """Funnel plot of proportions against volume (log x axis).
 
     ``points``: dicts with n, p, label, flag in {"above", "below", None}.
-    ``limit(n, z)`` returns the control limit half-width at volume n.
+    ``limits(n, z)`` returns the (lower, upper) control limits at volume n; they
+    need not be symmetric (limits from a transformed scale usually are not).
     """
     width, height = 900, 360
     left, right, top, bottom = 56, 20, 14, 40
@@ -239,11 +241,11 @@ def funnel(title: str, subtitle: str, points: list[dict], p0: float, limit, fmt_
         parts.append(f"<text class='tick' x='{x:.1f}' y='{height - 20}' text-anchor='middle'>{escape(fmt_n(decade))}</text>")
         decade *= 10
     parts.append(f"<text class='tick' x='{left + plot_w / 2:.1f}' y='{height - 4}' text-anchor='middle'>"
-                 "Outpatient appointments in the year (log scale)</text>")
+                 f"{escape(x_label)}</text>")
     samples = [n_lo * (n_hi / n_lo) ** (i / 120) for i in range(121)]
     for z, dash in ((1.96, "4 4"), (3.09, "0")):
-        for sign in (1, -1):
-            pts = [(x_of(n), y_of(min(max(p0 + sign * limit(n, z), 0), p_hi))) for n in samples]
+        for side in (0, 1):
+            pts = [(x_of(n), y_of(min(max(limits(n, z)[side], 0), p_hi))) for n in samples]
             d = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts)
             parts.append(f"<path d='{d}' fill='none' stroke='var(--ink2)' stroke-width='1' stroke-dasharray='{dash}' opacity='.8'/>")
     y0 = y_of(p0)
@@ -257,7 +259,7 @@ def funnel(title: str, subtitle: str, points: list[dict], p0: float, limit, fmt_
             mark = f"<circle class='mark' cx='{x:.1f}' cy='{y:.1f}' r='4' fill='var(--surface)' stroke='var(--s3)' stroke-width='2'/>"
         else:
             mark = f"<circle class='mark' cx='{x:.1f}' cy='{y:.1f}' r='4' fill='var(--s1)' stroke='var(--surface)' stroke-width='1.5' opacity='.75'/>"
-        tip = f"{p['label']}\nDNA rate {fmt_p(p['p'])} of {fmt_n(p['n'])} appointments"
+        tip = f"{p['label']}\nDNA rate {fmt_p(p['p'])} of {fmt_n(p['n'])} appointments with a recorded outcome"
         parts.append(f"<g data-tip='{escape(tip)}'><circle cx='{x:.1f}' cy='{y:.1f}' r='10' fill='transparent'/>{mark}</g>")
     parts.append(f"<line class='axis' x1='{left}' x2='{left + plot_w}' y1='{top + plot_h}' y2='{top + plot_h}'/></svg>")
     legend = _legend([("Above the 99.8% limit", "var(--s2)", "dot"), ("Within limits", "var(--s1)", "dot"),

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2 (2026-11-08)
+
+- HL7 validator pinned to 7.0.5 (was "latest") and cached in CI with the UK Core packages, so conformance results are reproducible.
+- README rebuilt: report screenshots (light and dark), results table, two-layer defect matrix, architecture diagram, expected output, UK Core mapping with an example resource, verification table, data and standards versions, roadmap. Added `CITATION.cff`.
+- Version numbers aligned across packages.
+
 ## 0.2.1 (2026-11-07)
 
 - Conformance step fails if the validator produced no output, if any expected input is missing from its results, or if the invalid fixture yields no errors. Previously a validator that never ran would pass silently.
